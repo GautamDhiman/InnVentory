@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Hotel ID</th>
+      <th>Room ID</th>
+      <th>Date</th>
+      <th>Available</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for inventory in room_inventory %}
+    <tr>
+      <td>{{ inventory.hotel_id }}</td>
+      <td>{{ inventory.room_id }}</td>
+      <td>{{ inventory.date }}</td>
+      <td>{{ inventory.available }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
