@@ -5,6 +5,7 @@ Hotel Inventory management
 1. Clone the repository
 2. Create a virtual environment
 3. Install the requirements
+4. create secret.ini as sample.ini with credentials
 4. Run the server
 
 ```bash
@@ -14,6 +15,7 @@ virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py runserver
 ```
 
 ## Features

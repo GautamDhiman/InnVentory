@@ -16,12 +16,17 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read('secrets.ini')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-njn+7x2%16&r#kbp*-5)58t=5za&glikuxr5&!+x-u&n25qlsa'
+SECRET_KEY = config.get('secrets', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,11 +83,11 @@ WSGI_APPLICATION = 'InnVentory.wsgi.application'
 DATABASES = {
     'default': {
         'NAME': 'InnVentory',
-        'ENGINE': 'mysql.connector.django',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
-        'USER': 'root',
-        'PASSWORD': 'GautamDhiman@10',
+        'ENGINE': config.get('database', 'ENGINE'),
+        'HOST': config.get('database', 'HOST'),
+        'PORT': config.get('database', 'PORT'),
+        'USER': config.get('database', 'USER'),
+        'PASSWORD': config.get('database', 'PASSWORD'),
         'OPTIONS': {
           'autocommit': True,
         },
