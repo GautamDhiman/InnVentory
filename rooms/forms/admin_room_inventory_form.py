@@ -8,6 +8,11 @@ class AdminRoomInventoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AdminRoomInventoryForm, self).__init__(*args, **kwargs)
 
+        self.fields['created_by'].widget.attrs['readonly'] = True
+        self.fields['created_by'].widget.attrs['disabled'] = True
+        self.fields['updated_by'].widget.attrs['readonly'] = True
+        self.fields['updated_by'].widget.attrs['disabled'] = True
+
     def save(self, commit=True):
         instance = super(AdminRoomInventoryForm, self).save(commit=False)
 
@@ -23,4 +28,4 @@ class AdminRoomInventoryForm(forms.ModelForm):
 
     class Meta:
         model = RoomInventory
-        fields = ['hotel_id', 'hotel_name', 'room_id', 'date', 'available']
+        fields = '__all__'
