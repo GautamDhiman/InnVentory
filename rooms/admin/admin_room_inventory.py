@@ -13,6 +13,7 @@ class AdminRoomInventory(admin.ModelAdmin):
     change_list_template = 'room_inventory.html'
     list_per_page = 20
     ordering = ['hotel_name']
+    search_fields = ['hotel_name']
     list_display = ['hotel_name', 'room_id', 'date', 'available']
     list_filter = ['hotel_name', 'room_id', 'date', 'available']
 
